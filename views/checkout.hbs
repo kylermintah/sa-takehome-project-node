@@ -1,32 +1,51 @@
-<div class="row justify-content-md-center">
-  <div class="col-6">
-    <div class="text-center mt-40">
+<div class='row justify-content-md-center'>
+  <div class='col-6'>
+    <div class='text-center mt-40'>
       <h1>
         Checkout — Stripe Press
       </h1>
-      <h5 class="text-secondary">
+      <h5 class='text-secondary'>
         {{title}}
       </h5>
-      <hr class="mt-40">
-      <div class="mt-20 text-info">
-        Total due: $<span class="amount" data-amount="{{amount}}"></span>
+      <hr class='mt-40' />
+      <div class='mt-20 text-info'>
+        Total due: $
+        <span class='amount' data-amount="{{amount}}"></span>
       </div>
     </div>
-    <div class="card box-shadow mt-40">
-      <div class="card-body">
-        <form name="payment-form">
+    <div class='card box-shadow mt-40'>
+      <div class='card-body'>
+        <form id='checkout-form' action="/success" method="post"
+        data-secret="{{client_secret}}">
           <div>
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="you@email.com">
+            <label for='email'>
+              Email Address
+            </label>
+            <input
+              type='email'
+              class='form-control'
+              id='email'
+              name='email'
+              placeholder='you@email.com'
+            />
           </div>
-          <div class="mt-20 text-center text-secondary border-placeholder">
-            Add Stripe Element here!
+     
+          <div class='mt-20 text-center text-secondary border-placeholder'>
+              <div id='card-element'>
+                <!-- Elements will create input elements here -->
+              </div>
+              <!-- We'll put the error messages in this element -->
+              <div id='card-errors' role='alert'></div>
           </div>
-          <div class="mt-20">
-            <button type="submit" class="btn btn-lg btn-block btn-primary">Pay $<span class="amount" data-amount="{{amount}}"></span></button>
+          <div class='mt-20'>
+            <button id='card-button' type='submit' class='btn btn-lg btn-block btn-primary'>
+              Pay $
+              <span class='amount' data-amount="{{amount}}"></span>
+            </button>
           </div>
-        </form>
+          </form>
       </div>
     </div>
+    <br/><br/>
   </div>
-</div>
+</div> 
