@@ -1,13 +1,20 @@
 <main>
-  <div class="mt-40 text-center text-success">
+  <div class='mt-40 text-center text-success'>
     <h1>
-      <i class="far fa-check-circle"></i> 
+      <i class='far fa-check-circle'></i>
       Success!
     </h1>
   </div>
-  <div class="mt-40 text-center">
-    <div class="mt-20 text-center text-secondary border-placeholder">
-      Add details about the payment here!
+  <div class='mt-40 text-center'>
+    <br />
+    <div class='mt-20 text-center text-secondary border-placeholder'>
+      <h5>
+        Payment Confirmation:
+      </h5>
+      {{email}}
+      <div id='payment-details' data-secret="{{client_secret}}">
+        Loading...
+      </div>
     </div>
   </div>
 </main>
