@@ -98,7 +98,6 @@ $(document).ready(async function () {
     const paymentIntent = (
       await stripe.retrievePaymentIntent(paymentDetails.dataset.secret)
     ).paymentIntent
-
     $('#payment-details').html(
       `<div class='mt-20 text-info'>ID: ${paymentIntent.id} <br/> Total: $${(
         paymentIntent.amount / 100
