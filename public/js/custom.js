@@ -53,6 +53,7 @@ $(document).ready(async function () {
     })
 
     var form = document.getElementById('checkout-form')
+    var processingMessage = document.getElementById('processing-message')
     form.addEventListener('submit', async function (ev) {
       ev.preventDefault()
       // If the client secret was rendered server-side as a data-secret attribute
@@ -61,7 +62,7 @@ $(document).ready(async function () {
       var email = $('#email').val()
       var client_secret = form.dataset.secret
       console.log('confirming payment...')
-      document.getElementById('processing-message').style.visibility = 'visible';
+      processingMessage.style.visibility = 'visible';
       await stripe
         .confirmCardPayment(client_secret, {
           payment_method: {
@@ -72,7 +73,7 @@ $(document).ready(async function () {
           },
         })
         .then(function (result) {
-          document.getElementById('processing-message').style.visibility = 'hidden';
+          processingMessage.style.visibility = 'hidden';
           if (result.error) {
             // Display payment error to user
             displayErrorMessage(result.error.message)
