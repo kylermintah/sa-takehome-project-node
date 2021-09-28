@@ -24,7 +24,7 @@ $(document).ready(async function () {
   if (!publishiableKey) {
     console.log('Stripe API key not found')
     alert(
-      'Stripe API key not found - Please set your Stripe publishiable key in the .env file',
+      'Stripe API keys not found - Please retrieve your test API keys from your Stripe dashboard and create a .env file in this project\'s root directory.\n\nAdd your Stripe publishable and secret keys to your .env file as follows: \n\nSTRIPE_SECRET_KEY = sk_test_... \nSTRIPE_PUBLISHABLE_KEY = pk_test_...'
     )
   }
 
@@ -61,6 +61,7 @@ $(document).ready(async function () {
       var email = $('#email').val()
       var client_secret = form.dataset.secret
       console.log('confirming payment...')
+      document.getElementById('processing-message').style.visibility = 'visible';
       await stripe
         .confirmCardPayment(client_secret, {
           payment_method: {
@@ -71,6 +72,7 @@ $(document).ready(async function () {
           },
         })
         .then(function (result) {
+          document.getElementById('processing-message').style.visibility = 'hidden';
           if (result.error) {
             // Display payment error to user
             displayErrorMessage(result.error.message)
