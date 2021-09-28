@@ -22,3 +22,13 @@ npm start
 ```
 
 Navigate to [http://localhost:3000](http://localhost:3000) to view the index page.
+
+# Test Cards
+
+Here are some card numbers you can use for testing the integration
+
+| Outcome | Card Number |
+| --- | --- |
+| Successful Paymenet | `4242 4242 4242 4242` |
+| Failed Payment | `4000 0000 0000 9995` |
+| Require Authentication| `4000 0025 0000 3155` |
